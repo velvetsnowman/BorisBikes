@@ -1,0 +1,11 @@
+Challenge 4
+
+- Write the error: The error is an uninitialised constant. ie. the class we want
+to creat a new instance of does not exist yet.
+- Write file path where error occured. The error occured in the last line
+printed on the terminal. ie. the error occured in line 1 of irb.
+- Write line number of the error is on line 1 of irb
+- The NameError clearly states that the constant (class) does not exist, so
+we cant creste a new instance of a class that does not exist yet.
+- To solve the error we would first need to create a new class, that way we
+could add a new instance to that class. 
