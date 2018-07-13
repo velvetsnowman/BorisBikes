@@ -6,7 +6,7 @@ class DockingStation
   end
 
   def release_bike
-    fail 'There are no available bikes' unless @bike
+    fail 'There are no available bikes' unless !@bikes.empty?
     @bikes.pop
   end
 
@@ -20,4 +20,6 @@ class DockingStation
   # def bikes
   #   @bikes
   # end
+
+
 end
