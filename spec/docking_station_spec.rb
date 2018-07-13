@@ -6,6 +6,15 @@ describe DockingStation do
   it { is_expected.to respond_to(:bikes) }
   it { is_expected.to respond_to(:dock).with(1).argument }
 
+  describe '#capacity' do
+    it "has a default capacity" do
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
+
+    it "gives a capacity of 35" do
+      expect(DockingStation.new(30).capacity).to eq 30
+    end
+  end
 
   it 'should respond to bikes that are currently docked' do
     bike = Bike.new
@@ -39,14 +48,14 @@ describe DockingStation do
     #   expect(subject.dock(bike).pop).to eq bike
     # end
 
-    it 'raises an error if capacity of 20 is reached' do
-      DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
+    it 'raises an error if capacity is reached' do
+      subject.capacity.times {subject.dock(Bike.new)}
       expect {subject.dock(Bike.new)}.to raise_error('Capacity is full')
     end
 
-    it 'can dock 20 bikes' do
-      DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
-      expect(subject.bikes.length).to eq DockingStation::DEFAULT_CAPACITY
+    it 'can dock the maximum capacity of bikes' do
+      subject.capacity.times {subject.dock(Bike.new)}
+      expect(subject.bikes.length).to eq subject.capacity
     end
   end
 
