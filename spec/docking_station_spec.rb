@@ -9,7 +9,7 @@ describe DockingStation do
   it "should say if a bike is working or not" do
     subject.dock(Bike.new)
     bike = subject.release_bike
-    expect(bike).to be_working
+    expect(bike.working?).to be true
   end
 
   it 'should respond to bikes that are currently docked' do
