@@ -16,7 +16,7 @@ describe DockingStation do
     end
   end
 
-  it 'should respond to bikes that are currently docked' do
+  it 'should should show bikes that are currently docked' do
     bike = Bike.new
     subject.dock(bike)
     expect(subject.bikes[0]).to eq bike
@@ -43,10 +43,6 @@ describe DockingStation do
   end
 
   describe '#dock' do
-    # it 'docks a bike' do
-    #   bike = Bike.new
-    #   expect(subject.dock(bike).pop).to eq bike
-    # end
 
     it 'raises an error if capacity is reached' do
       subject.capacity.times {subject.dock(Bike.new)}
