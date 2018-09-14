@@ -1,5 +1,9 @@
 class Bike
-  def working?
+
+  def initialize
+  end
+
+  def is_broken
     true
   end
 end

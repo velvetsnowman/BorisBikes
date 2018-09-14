@@ -1,4 +1,7 @@
 require 'bike'
 describe Bike do
-  it { is_expected.to respond_to :working? }
+  let (:bike) { Bike.new }
+  it 'should say if a bike is broken or not' do
+    expect(bike.is_broken).to be true
+  end
 end
