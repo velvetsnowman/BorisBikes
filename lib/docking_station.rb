@@ -13,7 +13,7 @@ class DockingStation
 
   def dock(bike)
     fail 'Capacity is full' if full?
-    puts 'Is the bike broken?'
+    puts 'Is the bike broken? [y/n]'
     if gets.chomp.capitalize == "Y"
       broken = @quality_report.is_broken
       @bikes << {bike: bike, broken: "#{broken}"}
